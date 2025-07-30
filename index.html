@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Emprende con Inteligencia Artificial</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary-color: #0a7cff;
+            --secondary-color: #00d4ff;
+            --dark-color: #1a202c;
+            --light-color: #f7fafc;
+            --gray-color: #a0aec0;
+            --white-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header {
+            background: linear-gradient(90deg, var(--dark-color) 0%, #2d3748 100%);
+            color: var(--white-color);
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        header h1 span {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+            color: var(--gray-color);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white-color);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.6);
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            font-weight: 600;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--white-color);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .bg-dark {
+            background-color: var(--dark-color);
+            color: var(--white-color);
+        }
+        
+        .bg-dark .section-title {
+            color: var(--white-color);
+        }
+
+        .target-audience ul {
+            list-style: none;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .target-audience li {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .target-audience li::before {
+            content: '✓';
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--white-color);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-card p:first-of-type {
+            font-style: italic;
+            color: #4a5568;
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card .author {
+            font-weight: 600;
+            color: var(--primary-color);
+            text-align: right;
+        }
+        
+        .final-cta {
+            text-align: center;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white-color);
+        }
+        
+        .final-cta .section-title, .final-cta p {
+            color: var(--white-color);
+        }
+        
+        .final-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        footer {
+            background: var(--dark-color);
+            color: var(--gray-color);
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header {
+                padding: 4rem 1rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .cta-button {
+                padding: 0.8rem 1.8rem;
+                font-size: 1rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Transforma tu Idea en un Negocio Exitoso con <span>Inteligencia Artificial</span></h1>
+            <p>El curso definitivo para emprendedores, creadores y profesionales que quieren dominar las herramientas de IA para innovar, automatizar y escalar sus proyectos.</p>
+            <a href="https://pay.hotmart.com/K100760552U" class="cta-button">Inscríbete Ahora</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="curso">
+            <div class="container">
+                <h2 class="section-title">¿Qué Aprenderás en el Curso?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="icon">🤖</div>
+                        <h3>Interfaz de ChatGPT</h3>
+                        <p>Aprende a navegar y utilizar todas las funciones de la interfaz de ChatGPT para sacarle el máximo provecho.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">📝</div>
+                        <h3>Estructura de un Prompt</h3>
+                        <p>Descubre cómo estructurar prompts efectivos para obtener respuestas precisas y creativas de la IA.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">📈</div>
+                        <h3>Benchmarking con IA</h3>
+                        <p>Utiliza la inteligencia artificial para realizar análisis comparativos de competidores y mejorar tu estrategia.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">💰</div>
+                        <h3>Análisis Financiero</h3>
+                        <p>Automatiza el análisis de datos financieros y comerciales para tomar decisiones más informadas.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">📱</div>
+                        <h3>Contenido para Redes</h3>
+                        <p>Genera ideas y contenido atractivo para tus redes sociales de forma rápida y eficiente con IA.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🎨</div>
+                        <h3>Diseño en Canva con IA</h3>
+                        <p>Crea diseños impactantes en Canva partiendo de conceptos e ideas generadas por inteligencia artificial.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="para-quien" class="bg-dark">
+            <div class="container">
+                <h2 class="section-title">¿Es este curso para ti?</h2>
+                <div class="target-audience">
+                    <ul>
+                        <li>Emprendedores que buscan lanzar o escalar su negocio utilizando la última tecnología.</li>
+                        <li>Profesionales del marketing y la comunicación que quieren potenciar sus campañas.</li>
+                        <li>Creadores de contenido que desean optimizar su flujo de trabajo y creatividad.</li>
+                        <li>Cualquier persona curiosa con ganas de aplicar la IA en proyectos reales.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonios">
+            <div class="container">
+                <h2 class="section-title">Lo que dicen nuestros alumnos</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p>"Este curso me abrió los ojos. Pude automatizar el 50% de mis tareas de marketing en la primera semana. ¡Totalmente recomendado!"</p>
+                        <p class="author">- Laura G., CEO de una Startup</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Pensé que la IA era algo muy complejo. El curso lo explica de una forma tan práctica que ahora la uso todos los días para crear contenido para mis clientes."</p>
+                        <p class="author">- Carlos V., Consultor de Marketing Digital</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Increíble la cantidad de herramientas que descubrí. Pasé de tener una idea vaga a un plan de negocio sólido y validado con datos."</p>
+                        <p class="author">- Sofía M., Emprendedora</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            .faq-item {
+                background: var(--white-color);
+                margin-bottom: 1rem;
+                border-radius: 5px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            }
+            .faq-item summary {
+                padding: 1.5rem;
+                font-weight: 600;
+                cursor: pointer;
+                outline: none;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .faq-item summary::-webkit-details-marker {
+                display: none;
+            }
+            .faq-item summary::after {
+                content: '+';
+                font-size: 1.5rem;
+                transition: transform 0.3s ease;
+            }
+            .faq-item[open] summary::after {
+                transform: rotate(45deg);
+            }
+            .faq-item p {
+                padding: 0 1.5rem 1.5rem;
+                margin-top: -1rem;
+            }
+        </style>
+    </head>
+    <body>
+        <section id="faq">
+            <div class="container">
+                <h2 class="section-title">Preguntas Frecuentes</h2>
+                <div class="faq-grid">
+                    <details class="faq-item">
+                        <summary>¿Necesito saber programar o ser un experto en tecnología?</summary>
+                        <p>No en absoluto. El curso está diseñado para emprendedores y profesionales. Nos enfocamos en el uso estratégico de herramientas de IA que no requieren código. Aprenderás a aplicar la IA, no a programarla desde cero.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Tengo un trabajo a tiempo completo, ¿podré seguir el ritmo del curso?</summary>
+                        <p>¡Claro que sí! El acceso al curso es de por vida. Puedes aprender a tu propio ritmo, en tus propios horarios y repasar las lecciones cuantas veces necesites. La idea es que el conocimiento se adapte a ti, no al revés.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>¿Realmente vale la pena la inversión en este curso?</summary>
+                        <p>Piensa en el retorno: el tiempo que ahorrarás automatizando tareas, el dinero que generarás con nuevas ideas de negocio validadas y la ventaja competitiva que obtendrás. Es una inversión en una habilidad fundamental para el futuro de cualquier negocio.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>¿Qué pasa si me quedo atascado o tengo dudas durante el curso?</summary>
+                        <p>No estarás solo. Con tu inscripción, obtienes acceso a nuestra comunidad privada donde podrás hacer preguntas, compartir tus proyectos y conectar con otros emprendedores como tú. También tendremos sesiones de preguntas y respuestas.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+        
+        <section id="inscripcion" class="final-cta">
+            <div class="container">
+                <h2 class="section-title">¿Listo para Emprender con IA?</h2>
+                <p>Accede de por vida al contenido, a la comunidad privada y a las actualizaciones futuras.</p>
+                <a href="https://pay.hotmart.com/K100760552U" class="cta-button">Quiero Inscribirme Ahora</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Emprende con IA. Todos los derechos reservados. Creado por Alejandro Vega Arguedas.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
